@@ -1,10 +1,10 @@
-export interface Normalizedata {
+export interface NormalizeData {
     id:string,
     author:string[],
     title : string,
     source :string,
     abstract:string,
     url:string,
-    publisDate: string,
+    publishDate: string,
     category:string,
 }
