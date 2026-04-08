@@ -1,0 +1,53 @@
+
+.container {
+min-height: 100vh;
+max-width: 56rem;
+padding: 2rem;
+margin: auto;
+font-family: sans-serif;
+}
+.title{
+font-size: 1.865rem;
+font-weight: bold;
+margin-bottom: 1.5rem;
+color: #1f2937;
+}
+.heading{
+display: flex;
+align-items: start;
+justify-content: space-between;
+}
+.searchpaper{
+padding: 0.5rem;
+border-radius: 18px;
+width: 200px;
+font-size: 1.3rem;
+}
+.cardList{
+display: flex;
+flex-direction: column;
+gap:15;
+}
+.card{
+padding: 1.5rem;
+border: 1px solid #e5e7eb;
+border-radius: 0.5rem;
+}
+.cardHeader{
+display: flex;
+justify-content: space-between;
+margin-bottom: 8px;
+}
+.header{
+margin-bottom: 10px;
+}
+.author{
+    margin: 10px 0px;
+}
+.sourceBadge{
+background-color: #e5e7eb;
+padding: 0.25rem 0.75rem ;
+border-radius: 9999px;
+font-size: 0.875rem;
+color: #4b5563;
+}
