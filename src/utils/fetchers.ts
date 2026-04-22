@@ -30,7 +30,16 @@ return new Promise((resolve)=>{
 
     },1000)
 })
+}
+const getPaperById = async (id: string)=>{
+
+      const allpaper = await fetcherData("");
+        
+        
+    const foundPaper = allpaper.find((paper : NormalizeData) => paper.id === id);
+   
+    return foundPaper || null;
 
 }
 
-export {fetcherData}
+export {fetcherData ,  getPaperById }
