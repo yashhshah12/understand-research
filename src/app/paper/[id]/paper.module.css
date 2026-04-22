@@ -1,0 +1,69 @@
+
+.container {
+min-height: 100vh;
+max-width: 56rem;
+padding: 2.5em;
+margin: auto;
+font-family: sans-serif;
+}
+
+.card{
+background: #ffff;
+padding: 1.8rem;
+border: 1px solid #e5e7eb;
+border-radius: 10px;
+box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.backbutton{
+    display: inline-block;
+    margin-bottom: 24px;
+    color: #2563eb;
+    font-size: 14px;
+    text-decoration: none;
+}
+.cardHeader{
+    display: flex;
+    align-items: center;
+    gap: 8;
+    margin-bottom: 16px;
+}   
+.sourceBadge{
+background-color: #e5e7eb;
+padding: 0.25rem 0.75rem ;
+border-radius: 9999px;
+font-size: 0.875rem;
+color: #4b5563;
+}
+.date {
+  font-size: 18px;
+  color: #6b7280;
+}
+.title{
+    font-size: 25px;
+    margin-bottom: 12px;
+    color:#111827;
+    font-weight: bold;
+}
+.author{
+    font-size: 18px;
+    color: #6b7280;
+    margin-bottom: 24px;
+    padding-bottom:28px ;
+    border-bottom: 1px solid  #e5e7eb;
+}
+.authorname{
+    font-weight: 500;
+    color: #1f2937;
+}
+.abstract{
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #1f2937;
+    font-weight: 600;
+}
+.abstractDetails{
+    margin-bottom: 24px;
+    line-height: 1.7;
+    color: #374151;
+}
+
