@@ -1,7 +1,11 @@
 
+import Link from 'next/link';
 import {fetcherData} from '../../utils/fetchers';
-   export const dynamic = 'force-dynamic';
+   
+export const dynamic = 'force-dynamic';
+   
    import styles from './results.module.css';
+
     const ResultPage  = async ({searchParams} : {
         searchParams : {q? : string}
     })=>{
@@ -30,12 +34,10 @@ import {fetcherData} from '../../utils/fetchers';
                         <h2 className={styles.header}>{paper.title}</h2>
                         <p >{paper.abstract}</p>
                         <p className={styles.author}>{paper.author}</p>
-                        <a href={paper.url}
-                        target='_blank'
-                        rel='noopener noreferrer'
+                        <Link href={`/paper/${paper.id}`}
                         >
                             View original paper
-                        </a>
+                        </Link>
                         </div>
                     ))
                 }
