@@ -1,0 +1,30 @@
+.container{
+min-height: 100dvh;
+justify-content: start;
+align-items: center;
+display: flex;
+padding: 20px;
+flex-direction: column;
+}
+.container h1{
+    font-size: 30px;
+    margin-bottom: 40px;
+}
+.container input{
+    height: 50px;
+    max-width: 450px;
+    width: 100%;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 20px;
+}
+.controls{
+    display: flex;
+
+    gap: 10px;
+}
+.controls button{
+    padding: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+}

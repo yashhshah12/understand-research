@@ -1,10 +1,8 @@
 
 import Link from 'next/link';
-import {fetcherData} from '../../utils/fetchers';
-   
+import {fetcherData} from '../../utils/fetchers';   
 export const dynamic = 'force-dynamic';
-   
-   import styles from './results.module.css';
+import styles from './results.module.css';
 
     const ResultPage  = async ({searchParams} : {
         searchParams : {q? : string}
@@ -36,7 +34,7 @@ export const dynamic = 'force-dynamic';
                         <p className={styles.author}>{paper.author}</p>
                         <Link href={`/paper/${paper.id}`}
                         >
-                            View original paper
+                            View paper details
                         </Link>
                         </div>
                     ))
