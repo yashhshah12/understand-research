@@ -5,10 +5,12 @@ import styles from './paper.module.css';
 
 const PaperDetails  = async ({params} : {params : {id? : string}})=>{
 const resolvedParam = await  params;
+
 const paperId = resolvedParam.id;
 if (!paperId) {
     return notFound();
 }
+
 const  paperDetail = await getPaperById(paperId);
 
 if (!paperDetail) {
@@ -29,11 +31,11 @@ return (
                         <h1 className={styles.title}>{paperDetail.title}</h1>
                         
                         <p className={styles.author}>
-                           By: <span className={styles.authorname}>{paperDetail.author.join(', ')} 
+                           By: <span className={styles.authorname}>{paperDetail.author|| "Unknown Author"} 
                             </span>
                             </p>
                             <h2 className={styles.abstract}>Abstract</h2>
-                            <p className={styles.abstractDetails}>{paperDetail.abstract}</p>
+                            <p className={styles    .abstractDetails}>{paperDetail.abstract}</p>
                             
                         <a 
           href={paperDetail.url} 

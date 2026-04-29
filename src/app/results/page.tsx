@@ -4,13 +4,15 @@ import {fetcherData} from '../../utils/fetchers';
 export const dynamic = 'force-dynamic';
 import styles from './results.module.css';
 
-    const ResultPage  = async ({searchParams} : {
-        searchParams : {q? : string}
-    })=>{
-        const query =  searchParams.q || 'Biology';
 
+    const ResultPage  = async ({searchParams} : {
+        searchParams : Promise<{q? : string}>
+    })=>{
+        const resolvePromise = await searchParams
+        const query =  resolvePromise.q || 'Biology';
+      
         const papers = await fetcherData(query);
-            console.log(papers);
+            
      
         return (
                 <>
@@ -24,15 +26,15 @@ import styles from './results.module.css';
                 <div className={styles.cardList}>
                 {
                     papers.map((paper)=> (
-                        <div className={styles.card} key={paper.id}>
+                        <div className={styles.card} key={paper.paperId}>
                         <div className={styles.cardHeader}>
                             <span className={styles.sourceBadge}> {paper.source}</span>
                             <span className={styles.data}>  {paper.publishDate}</span>
                         </div>
                         <h2 className={styles.header}>{paper.title}</h2>
                         <p >{paper.abstract}</p>
-                        <p className={styles.author}>{paper.author}</p>
-                        <Link href={`/paper/${paper.id}`}
+                        <p className={styles.author}>{paper.author || "Unknown Author"}</p>
+                        <Link href={`/paper/${paper.paperId}`}
                         >
                             View paper details
                         </Link>
