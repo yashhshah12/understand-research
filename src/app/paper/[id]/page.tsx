@@ -45,7 +45,7 @@ return (
         >
           Read Full PDF on Publisher Website ↗
         </a>
-                        </div>
+    </div>
 
 
     </main>

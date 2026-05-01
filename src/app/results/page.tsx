@@ -12,6 +12,7 @@ import styles from './results.module.css';
         const query =  resolvePromise.q || 'Biology';
       
         const papers = await fetcherData(query);
+         
             
      
         return (
@@ -33,7 +34,7 @@ import styles from './results.module.css';
                         </div>
                         <h2 className={styles.header}>{paper.title}</h2>
                         <p >{paper.abstract}</p>
-                        <p className={styles.author}>{paper.author || "Unknown Author"}</p>
+                        <p className={styles.author}>{paper.author}</p>
                         <Link href={`/paper/${paper.paperId}`}
                         >
                             View paper details
