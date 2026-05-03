@@ -8,8 +8,7 @@ const SearchBar = () =>{
 const [search , setSearch] = useState('');
 const router = useRouter();
 const handleSearch = (e :React.SubmitEvent<HTMLFormElement>) =>{
-
-    e.preventDefault()
+e.preventDefault()
 if (!search) {
     return;
 
