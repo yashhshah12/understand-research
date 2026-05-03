@@ -10,9 +10,6 @@ const response = await fetch(url);
         throw new Error("Connection issues....");
     }    
     const paperData = await response.json();
-    console.log(paperData , "This is paperData");
-    
-  
     return paperData.data;
 
  } catch (error:any) {
@@ -21,9 +18,9 @@ const response = await fetch(url);
  }   
 }
 const getPaperById = async (id: string)=>{
-
       const allpaper = await fetcherData("");
     const foundPaper = allpaper.find((paper : NormalizeData) => paper.paperId === id);
+   console.log(foundPaper , "this is fetcher function");
    
     return foundPaper || null;
 

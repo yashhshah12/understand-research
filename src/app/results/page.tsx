@@ -12,9 +12,6 @@ import styles from './results.module.css';
         const query =  resolvePromise.q || 'Biology';
       
         const papers = await fetcherData(query);
-         
-            
-     
         return (
                 <>
                 <main className={styles.container}>
@@ -43,8 +40,6 @@ import styles from './results.module.css';
                     ))
                 }
                 </div>
-
-
                 </main>
                 </>
 

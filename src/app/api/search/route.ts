@@ -21,11 +21,11 @@ try{
 
       const normalizeData = opexAlex.results.map((paper:any)=>{
             return {
-        paperId : paper.id,
-        author : paper?.authorships.map((a : any) => a.author.display_name).join(',') || "No author available ",
+        paperId : paper.id ? paper.id.split("/").pop() : "No id provided",
+        author : paper?.authorships?.map((a : any) => a.author.display_name).join(',') || "No author available ",
         title : paper?.title || "unkown",
         source : paper?.source || "Openalax",
-        abstract : paper?.abstract || "No abstract available",
+        abstract : paper?.abstract || "No   abstract available",
         url : paper?.url || "no link provided",
         publishDate : paper?.publication_date || paper.year || "no publish Date provided",
         category :  paper?.category || "Uncategorired",
@@ -38,8 +38,12 @@ try{
 
     return NextResponse.json({data : normalizeData});
 
-}catch(error){
-return NextResponse.json({error : "Internal server error" } ,{status : 500});
+
+}catch(error :any){
+console.log(error.message , "This is route error message");
+
+    return NextResponse.json({error : "Internal server error" } ,{status : 500});
+
 }
 
 
