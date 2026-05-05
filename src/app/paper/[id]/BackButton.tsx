@@ -3,14 +3,21 @@ import { useRouter } from 'next/navigation';
  import styles from './paper.module.css';
 
 
-const BackButton = ()=>{
+const BackButton = ({mode = 'navigate'}: {mode?: 'navigate' | 'closeTab'})=>{
 const router = useRouter();
+function handleclick() {
+    if (mode == 'closeTab') {
+        window.close()
+    }else{
+        router.back();
+    }
+}
     return (
         <>
     <button
-    onClick={()=> router.back()}  className= {styles.backbutton}
+    onClick={handleclick}  className= {styles.backbutton}
   >
-        ← Back to Results
+        {mode == 'closeTab' ? 'Close Tab & Return' : '← Back to Results'}
     </button>
 
         </>

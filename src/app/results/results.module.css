@@ -6,11 +6,15 @@ padding: 2rem;
 margin: auto;
 font-family: sans-serif;
 }
-.title{
+.linkCard{
+    text-decoration: none;
+    cursor: default;
+}
+.title{ 
 font-size: 1.865rem;
 font-weight: bold;
 margin-bottom: 1.5rem;
-color: #1f2937;
+
 }
 .heading{
 display: flex;
@@ -37,12 +41,16 @@ border-radius: 0.5rem;
 display: flex;
 justify-content: space-between;
 margin-bottom: 8px;
+
 }
 .header{
-margin-bottom: 10px;
+color: black !important;     
+
 }
 .author{
-    margin: 10px 0px;
+    margin: 12px 0px;
+ color: oklch(37.3% 0.034 259.733);
+ 
 }
 .sourceBadge{
 background-color: #e5e7eb;
@@ -51,3 +59,19 @@ border-radius: 9999px;
 font-size: 0.875rem;
 color: #4b5563;
 }
+.abstact{
+    color: oklch(37.3% 0.034 259.733);
+    margin-top: 10px
+}
+.date{
+     color: black !important;
+     
+}
+.viewBtn{
+    background: none;
+    border: none;
+    color: #2563eb;
+    cursor: pointer;
+    font-size: 0.895rem;
+}
+

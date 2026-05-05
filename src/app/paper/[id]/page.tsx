@@ -11,7 +11,13 @@ const paperId = resolvedParam.id;
 
 
 if (!paperId) {
-    return notFound();
+     return (
+        <div className={styles.errorMess}>
+           <h1>!Something went wrong</h1>
+           <p>We couldn't load this specific paper.</p>
+        <BackButton mode="closeTab"/>
+        </div>
+    )    
 }
 
 try {
@@ -20,7 +26,7 @@ try {
         return(
             <div className={styles.errorMess}>
                 <h1>No paper found</h1>
-              <BackButton />
+              <BackButton mode="closeTab"/>
             </div>
         )
     }
@@ -30,12 +36,14 @@ try {
             paperId : paperDetails.id,
             paperTitle : paperDetails.title,
             paperPublicationYear : paperDetails.publication_date,
-            paperSource : paperDetails.source || "openalex",
-            paperAuthor : paperDetails.authorships?.map((a : any) => a.author.display_name).join(',') || "No author available ",
+            paperSource : paperDetails.source || "OpenAlex",
+            paperAuthor : paperDetails.authorships?.map((a : any) => a.author.display_name).join(', ') || "No author available ",
             paperAbstract : paperDetails.abstract || "No abstract available",
-            paperLink : paperDetails.doi || "NO Link avaiable"
-        
+            paperLink : paperDetails.doi || null,
+            
     }
+    console.log(paper.paperLink);
+    
 return (
 <>
    <main className={styles.container}>
@@ -55,15 +63,21 @@ return (
                             </p>
                             <h2 className={styles.abstract}>Abstract</h2>
                             <p className={styles.abstractDetails}>{paper.paperAbstract}</p>
-                            
-                        <a 
+                     {paper.paperLink && paper.paperLink.startsWith('http') ?  (
+                                      <a 
           href={paper.paperLink} 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-block bg-blue-600 text-white font-medium px-6 py-3 rounded-md hover:bg-blue-700 transition-colors shadow-sm"
+          className={styles.link}
+        
         >
           Read Full PDF on Publisher Website ↗
-        </a>
+        </a>)
+            : 
+            (<button className={styles.diabledButton} disabled>No paper available at this link</button>
+            )
+                     }       
+          
     </div>
 
 
@@ -79,7 +93,8 @@ return (
     return (
         <div className={styles.errorMess}>
            <h1>!Something went wrong</h1>
-        <BackButton />
+           <p>We couldn't load this specific paper.</p>
+        <BackButton mode="closeTab"/>
         </div>
     )    
 }

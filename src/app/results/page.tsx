@@ -25,16 +25,17 @@ import styles from './results.module.css';
                 {
                     papers.map((paper)=> (
                         <div className={styles.card} key={paper.paperId}>
+                              <Link className={styles.linkCard} href={`/paper/${paper.paperId}`}
+                        >
                         <div className={styles.cardHeader}>
                             <span className={styles.sourceBadge}> {paper.source}</span>
-                            <span className={styles.data}>  {paper.publishDate}</span>
+                            <span className={styles.date}>  {paper.publishDate}</span>
                         </div>
                         <h2 className={styles.header}>{paper.title}</h2>
-                        <p >{paper.abstract}</p>
+                        <p  className={styles.abstact}>{paper.abstract}</p>
                         <p className={styles.author}>{paper.author}</p>
-                        <Link href={`/paper/${paper.paperId}`}
-                        >
-                            View paper details
+                      
+                          <button className={styles.viewBtn}>  View paper details</button>
                         </Link>
                         </div>
                     ))
