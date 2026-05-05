@@ -20,12 +20,12 @@ margin-top: 12px;
     color: #2563eb;
     font-size: 14px;
     text-decoration: none;
-    padding: 2px 5px;
+    padding: 5px 10px;
     border-radius: 2px;
+    border: none;
+    border-radius: 12px;
 }
-.backLink:hover {
-  text-decoration: underline;
-}
+
 
 .cardHeader{
     display: flex;
@@ -87,9 +87,30 @@ color: #4b5563;
 .errorMess h1{
     color: #DC2626;  
 }
+.diabledButton{
+    cursor: not-allowed;
+    border-radius: 15px;
+    padding: 3px 6px;
+}
+.link{
+    border-radius: 12px;
+    padding: 6px 10px;
+    cursor: pointer;
+    background: #2563eb;;
+    color: #fff;
+    text-decoration: none;
+}
+.link:hover{
+    background: oklch(48.8% 0.243 264.376);
+}
 @media screen and (max-width: 448px) {
 .errorMess h1{
     text-align: center;
+}
+}
+@media screen and (max-width: 436px) {
+.link{
+    font-size: 0.70rem;
 }
 }
 
