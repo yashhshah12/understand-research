@@ -99,9 +99,21 @@ color: #4b5563;
     background: #2563eb;;
     color: #fff;
     text-decoration: none;
+     transition: 300ms ease transform;
+     display: inline-block;
 }
 .link:hover{
     background: oklch(48.8% 0.243 264.376);
+}
+
+.link:focus {
+outline: 3px solid rgba(8, 39, 89, 0.15);
+outline-offset: 2px;    
+}
+.link:active {
+transform: translateY(16px) ;
+
+
 }
 @media screen and (max-width: 448px) {
 .errorMess h1{

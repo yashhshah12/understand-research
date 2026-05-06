@@ -5,26 +5,45 @@ align-items: center;
 display: flex;
 padding: 20px;
 flex-direction: column;
+max-width: 56rem;
+margin: auto;
 }
 .container h1{
     font-size: 30px;
     margin-bottom: 40px;
 }
-.container input{
-    height: 50px;
-    max-width: 450px;
-    width: 100%;
-    border-radius: 20px;
-    padding: 10px;
-    font-size: 20px;
-}
 .controls{
     display: flex;
-
+    max-width: 56rem;
     gap: 10px;
+    width: 100%;
 }
 .controls button{
     padding: 10px;
     border-radius: 12px;
     cursor: pointer;
+    border-radius: 12px;
+    background: #2563eb;
+    color: #ffff;
+    border: none;
+    transition: 300ms ease transform;
+    
+}
+.searchbox{
+    border-radius: 40px;  
+    padding: 10px 15px;
+    font-size: 1.4rem;  
+    width: 98%;
+}
+.controls button:hover{
+      background: oklch(48.8% 0.243 264.376);
+}
+.controls button:focus {
+outline: 3px solid rgba(8, 39, 89, 0.15);
+outline-offset: 2px;    
+}
+.controls button:active {
+transform: translateY(6px) ;
+
+
 }

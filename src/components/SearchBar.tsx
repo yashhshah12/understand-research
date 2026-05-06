@@ -2,11 +2,17 @@
 
 import { useState } from "react";
 import styles from '../app/page.module.css'
-import { useRouter } from "next/navigation";
+import { useRouter , useSearchParams } from "next/navigation";
+
 
 const SearchBar = () =>{
-const [search , setSearch] = useState('');
+const searchParams = useSearchParams();
+const initialquery = searchParams.get('q') || ''
+const [search , setSearch] = useState(initialquery);
 const router = useRouter();
+
+
+
 const handleSearch = (e :React.SubmitEvent<HTMLFormElement>) =>{
 e.preventDefault()
 if (!search) {
@@ -19,13 +25,13 @@ if (!search) {
 
 
     return (
-        <form className={styles.controls} onClick={handleSearch}>
-            <input type="text" placeholder="Enter research query" 
+        <form className={styles.controls} onSubmit={handleSearch}>
+            <input type="text" className={styles.searchbox} placeholder="Enter research query" 
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             />
             <button type="submit">
-                submit
+                Search
             </button>
 
         </form>
