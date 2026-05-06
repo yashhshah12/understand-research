@@ -1,29 +1,66 @@
 import {NormalizeData} from '@/types';
 
 const fetcherData = async (query : string) : Promise<NormalizeData[]>=>{
-const url = `http://localhost:3000/api/search?q=${encodeURIComponent(query)}`
+// const url = `http://localhost:3000/api/search?q=${encodeURIComponent(query)}`
+if (!query) {
+    return [];
+}
 
- try {
-const response = await fetch(url);
+const externalapi = `https://api.openalex.org/works?search=${query}&per-page=10`;
+try{
+    const response = await fetch(externalapi);
     if (!response.ok) {
-       
-        throw new Error("Connection issues....");
-    }    
-    const paperData = await response.json();
-    return paperData.data;
+        console.log(response.status);
+        
+        throw new Error("Something went wrong");
+            
+    }
+    const opexAlex = await response.json();
 
- } catch (error:any) {
-    console.log("Error message" , error);
-   return []; 
- }   
-}
-const getPaperById = async (id: string)=>{
-      const allpaper = await fetcherData("");
-    const foundPaper = allpaper.find((paper : NormalizeData) => paper.paperId === id);
-   console.log(foundPaper , "this is fetcher function");
+      const normalizeData = opexAlex.results.map((paper:any)=>{
+            return {
+        paperId : paper.id ? paper.id.split("/").pop() : "No id provided",
+        author : paper?.authorships?.map((a : any) => a.author.display_name).join(', ') || "No author available ",
+        title : paper?.title || "unkown",
+        source : paper?.source || "OpenAlex",
+        abstract : paper?.abstract || "No   abstract available",
+        url : paper?.url || "no link provided",
+        publishDate : paper?.publication_date || paper.year || "no publish Date provided",
+        category :  paper?.category || "Uncategorired",
+        year: paper?.publication_year || "No year provided"
+                    
+            }
+        })
+
+
+
+    return normalizeData;
+
+
+}catch(error :any){
+    return [];
+console.log(error.message , "This is route error message");
+
    
-    return foundPaper || null;
-
+}
 }
 
-export {fetcherData ,  getPaperById }
+
+
+
+
+
+
+
+
+
+// const getPaperById = async (id: string)=>{
+//       const allpaper = await fetcherData("");
+//     const foundPaper = allpaper.find((paper : NormalizeData) => paper.paperId === id);
+//    console.log(foundPaper , "this is fetcher function");
+   
+//     return foundPaper || null;
+
+// }
+
+export {fetcherData }

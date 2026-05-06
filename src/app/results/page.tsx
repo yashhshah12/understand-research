@@ -44,9 +44,6 @@ import styles from './results.module.css';
                 </div>
                 </main>
                 </>
-
-
-
         )
 
 
