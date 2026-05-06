@@ -1,13 +1,12 @@
-import { notFound } from "next/navigation";
-import {getPaperById  } from "../../../utils/fetchers";
+
 import BackButton from "./BackButton";
 import styles from './paper.module.css';
-import Link from "next/link";
 
 const PaperDetails  = async ({params} : {params : {id? : string}})=>{
 const resolvedParam = await  params;
 
 const paperId = resolvedParam.id;
+
 
 
 if (!paperId) {

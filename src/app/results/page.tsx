@@ -1,5 +1,6 @@
 
 import Link from 'next/link';
+import {SearchBar} from '../../components/SearchBar';
 import {fetcherData} from '../../utils/fetchers';   
 export const dynamic = 'force-dynamic';
 import styles from './results.module.css';
@@ -16,11 +17,11 @@ import styles from './results.module.css';
                 <>
                 <main className={styles.container}>
                     <div className={styles.heading}>
+                    <SearchBar/>
+                </div>
                 <h1 className={styles.title}>
                  Results for: <span className="">"{query}"</span>
                 </h1>
-                <input type="text" className={styles.searchpaper}  value={query}/>
-                </div>
                 <div className={styles.cardList}>
                 {
                     papers.map((paper)=> (
