@@ -10,9 +10,6 @@ const searchParams = useSearchParams();
 const initialquery = searchParams.get('q') || ''
 const [search , setSearch] = useState(initialquery);
 const router = useRouter();
-
-
-
 const handleSearch = (e :React.SubmitEvent<HTMLFormElement>) =>{
 e.preventDefault()
 if (!search) {
