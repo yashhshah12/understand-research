@@ -41,8 +41,6 @@ try {
             paperLink : paperDetails.doi || null,
             
     }
-    console.log(paper.paperLink);
-    
 return (
 <>
    <main className={styles.container}>

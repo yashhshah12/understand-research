@@ -79,4 +79,13 @@ color: #4b5563;
     cursor: pointer;
     font-size: 0.895rem;
 }
-
+.paginationList{
+   display: flex;
+   justify-content: center;
+   gap: 20px;
+   list-style: none;
+   margin-top: 10;
+}
+.paginationList li{
+    cursor: pointer;
+}

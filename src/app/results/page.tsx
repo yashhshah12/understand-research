@@ -1,18 +1,24 @@
 
 import Link from 'next/link';
+import {Pagination} from '../../components/Pagination';
 import {SearchBar} from '../../components/SearchBar';
 import {fetcherData} from '../../utils/fetchers';   
+import {pagination} from '../../utils/pagination'
 export const dynamic = 'force-dynamic';
 import styles from './results.module.css';
 
 
     const ResultPage  = async ({searchParams} : {
-        searchParams : Promise<{q? : string}>
+        searchParams : Promise<{q? : string; page?: string} >
     })=>{
         const resolvePromise = await searchParams
         const query =  resolvePromise.q || 'Biology';
-      
-        const papers = await fetcherData(query);
+        const currentNumber = resolvePromise.page;
+        const cleanNumber = Number(currentNumber) || 1
+        let papers = await fetcherData(query , cleanNumber);        
+        const paperData = papers.normalizeData || [];
+        const totalCount = papers.metaData?.count || 0;
+        const paginationArray = await pagination(totalCount , cleanNumber);
         return (
                 <>
                 <main className={styles.container}>
@@ -23,9 +29,10 @@ import styles from './results.module.css';
                  Results for: <span className="">"{query}"</span>
                 </h1>
                 <div className={styles.cardList}>
+                    
                 {
-                    papers.map((paper)=> (
-                        <div className={styles.card} key={paper.paperId}>
+                    paperData.map((paper : any)=> (
+                       <div className={styles.card} key={paper.paperId}>
                               <Link className={styles.linkCard} href={`/paper/${paper.paperId}`}
                         >
                         <div className={styles.cardHeader}>
@@ -39,14 +46,15 @@ import styles from './results.module.css';
                           <button className={styles.viewBtn}>  View paper details</button>
                         </Link>
                         </div>
+                    
                     ))
                 }
+                <Pagination paginationArray={paginationArray}/>
                 </div>
+             
                 </main>
                 </>
         )
-
-
     }
 
     export default ResultPage

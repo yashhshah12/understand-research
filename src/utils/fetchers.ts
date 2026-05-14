@@ -1,12 +1,15 @@
+import { metadata } from '@/app/layout';
 import {NormalizeData} from '@/types';
-
-const fetcherData = async (query : string) : Promise<NormalizeData[]>=>{
+import {PaperResponse} from '@/types';
+//
+const fetcherData = async (query : string , page : number = 1) : Promise<PaperResponse> =>{
 // const url = `http://localhost:3000/api/search?q=${encodeURIComponent(query)}`
 if (!query) {
-    return [];
+    return {  normalizeData :[] , metaData : null};
 }
 
-const externalapi = `https://api.openalex.org/works?search=${query}&per-page=10`;
+
+const externalapi = `https://api.openalex.org/works?search=${query}&page=${page}&per_page=20`;
 try{
     const response = await fetch(externalapi);
     if (!response.ok) {
@@ -14,9 +17,12 @@ try{
         
         throw new Error("Something went wrong");
             
-    }
+    }   
     const opexAlex = await response.json();
-
+       const metaData = opexAlex.meta;
+    
+       
+        
       const normalizeData = opexAlex.results.map((paper:any)=>{
             return {
         paperId : paper.id ? paper.id.split("/").pop() : "No id provided",
@@ -31,17 +37,13 @@ try{
                     
             }
         })
-
-
-
-    return normalizeData;
-
+        
+   
+    return {normalizeData , metaData}
 
 }catch(error :any){
-    return [];
-console.log(error.message , "This is route error message");
-
-   
+    console.log(error.message , "This is route error message");
+    return {normalizeData : [] , metaData : null};
 }
 }
 
