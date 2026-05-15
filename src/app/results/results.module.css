@@ -111,11 +111,10 @@ transform: scale(0.96);
 .paginationNumber{
     background: transparent;
     border: none;
-    
     border-radius: 8px;
-    width: 40px;
+    width: 30px;
     height: 30px;
-    font-size: 16px;    
+    font-size: 15px;    
     transition: all 0.2s ease-in-out;
 
 }
@@ -138,11 +137,33 @@ transform: scale(0.96);
     opacity: 0.5;
 }
 @media (max-width: 640px) {
+.paginationButton{
+    padding: 5px;
+
+}
 .paginationList{
     gap: 5px;
 }
 .paginationNumber{
-    padding: 2px;
+    
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
 }
 
+}
+@media (max-width: 528px ) {
+    .title{
+        font-size: 1.655rem;
+    }
+}
+@media (max-width: 475px ) {
+    .title{
+        font-size: 1.400rem;
+    }
+}
+@media (max-width: 410px ) {
+    .title{
+        font-size: 1.100rem;
+    }
 }

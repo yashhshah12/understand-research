@@ -23,7 +23,7 @@ router.push(`/results?q=${encodeURIComponent(initialquery)}&page=${selectNumber}
                 onClick={()=> handlepagination(currentpage - 1)}
                 className={styles.paginationButton} >
                 <ChevronLeft size={15}/>
-                Previous
+                Prev
                 </button>
                 </li>
              {paginationArray.length > 0 && paginationArray.map((paginationNumber : number)=>{
