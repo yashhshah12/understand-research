@@ -111,9 +111,9 @@ transform: scale(0.96);
 .paginationNumber{
     background: transparent;
     border: none;
-    padding: 5px;
+    
     border-radius: 8px;
-    width: 30px;
+    width: 40px;
     height: 30px;
     font-size: 16px;    
     transition: all 0.2s ease-in-out;
@@ -136,4 +136,13 @@ transform: scale(0.96);
     cursor: not-allowed;
     text-decoration: none;
     opacity: 0.5;
+}
+@media (max-width: 640px) {
+.paginationList{
+    gap: 5px;
+}
+.paginationNumber{
+    padding: 2px;
+}
+
 }

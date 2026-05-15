@@ -35,7 +35,7 @@ router.push(`/results?q=${encodeURIComponent(initialquery)}&page=${selectNumber}
                 )
              })}
             <li>
-                <button disabled={currentpage >= totalItem || currentpage >= 100} 
+                <button disabled={currentpage >= totalItem || currentpage >= 500} 
                  onClick={()=> handlepagination(currentpage+1)}
                   className={styles.paginationButton}
                  >
