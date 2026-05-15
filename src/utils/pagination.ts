@@ -7,11 +7,12 @@ const pagination = (totalItem:number , currentPage:number) =>{
 const pagePergroup = 5;
 const pageSize = 20
 const totalPage = Math.ceil(totalItem / pageSize);
+const paginationLimit = 500
 const currentGroup = Math.ceil(currentPage / pagePergroup)
 const startIndex = (currentGroup - 1) * pagePergroup + 1
-console.log(totalPage);
+const endPagintion = Math.min(totalPage , paginationLimit)
 
-const endIndex = Math.min(startIndex + pagePergroup - 1 , totalPage)
+const endIndex = Math.min(startIndex + pagePergroup, endPagintion)
 const pageNumberArray  =[]
 for(let i = startIndex ; i <= endIndex ; i++){
     pageNumberArray.push(i);
