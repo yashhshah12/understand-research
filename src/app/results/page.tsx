@@ -4,6 +4,7 @@ import {Pagination} from '../../components/Pagination';
 import {SearchBar} from '../../components/SearchBar';
 import {fetcherData} from '../../utils/fetchers';   
 import {pagination} from '../../utils/pagination'
+
 export const dynamic = 'force-dynamic';
 import styles from './results.module.css';
 
@@ -19,6 +20,9 @@ import styles from './results.module.css';
         const paperData = papers.normalizeData || [];
         const totalCount = papers.metaData?.count || 0;
         const paginationArray = await pagination(totalCount , cleanNumber);
+        const {pageNumberArray , totalPage} = paginationArray
+            ;
+            
         return (
                 <>
                 <main className={styles.container}>
@@ -49,7 +53,8 @@ import styles from './results.module.css';
                     
                     ))
                 }
-                <Pagination paginationArray={paginationArray}/>
+                <Pagination paginationArray={pageNumberArray}
+                            totalItem={totalPage}/>
                 </div>
              
                 </main>

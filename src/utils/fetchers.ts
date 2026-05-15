@@ -23,7 +23,7 @@ try{
     
        
         
-      const normalizeData = opexAlex.results.map((paper:any)=>{
+      const normalizeData = opexAlex.results.map((paper:any) : NormalizeData=>{
             return {
         paperId : paper.id ? paper.id.split("/").pop() : "No id provided",
         author : paper?.authorships?.map((a : any) => a.author.display_name).join(', ') || "No author available ",

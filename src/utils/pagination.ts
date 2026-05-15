@@ -9,14 +9,15 @@ const pageSize = 20
 const totalPage = Math.ceil(totalItem / pageSize);
 const currentGroup = Math.ceil(currentPage / pagePergroup)
 const startIndex = (currentGroup - 1) * pagePergroup + 1
+console.log(totalPage);
 
 const endIndex = Math.min(startIndex + pagePergroup - 1 , totalPage)
-const page  =[]
+const pageNumberArray  =[]
 for(let i = startIndex ; i <= endIndex ; i++){
-    page.push(i);
+    pageNumberArray.push(i);
 }
 
 
-return page
+return {pageNumberArray , totalPage}
 }
 export  {pagination}

@@ -24,5 +24,6 @@ metaData : MockData | null
 }
 
 export interface PaginationArray{
-paginationArray: number[]    
+paginationArray: number[] 
+totalItem:number   
 }
