@@ -9,8 +9,11 @@ max-width: 56rem;
 margin: auto;
 }
 .container h1{
-    font-size: 30px;
-    margin-bottom: 40px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 30px;
+    font-family: sans-serif;
 }
 .controls{
     display: flex;
@@ -33,7 +36,15 @@ margin: auto;
     border-radius: 20px;  
     padding: 10px 15px;
     font-size: 1.4rem;  
+     border:1.5px solid #d1d5db;
     width: 98%;
+    transition:.3s;
+
+}   
+.searchbox:focus{
+    outline: none;
+    border-color:#2563eb;
+   box-shadow:0 0 12px rgba(37,99,235,.25);
 }
 .controls button:hover{
       background: oklch(48.8% 0.243 264.376);
