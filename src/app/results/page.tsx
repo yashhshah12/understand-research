@@ -1,11 +1,10 @@
-
+export const dynamic = 'force-dynamic';
 import Link from 'next/link';
+import { Suspense } from 'react'
 import {Pagination} from '../../components/Pagination';
 import {SearchBar} from '../../components/SearchBar';
 import {fetcherData} from '../../utils/fetchers';   
 import {pagination} from '../../utils/pagination'
-
-export const dynamic = 'force-dynamic';
 import styles from './results.module.css';
 
 
@@ -27,7 +26,10 @@ import styles from './results.module.css';
                 <>
                 <main className={styles.container}>
                     <div className={styles.heading}>
-                    <SearchBar/>
+                        <Suspense fallback={<div>Loading Search...</div>}>
+         <SearchBar/>
+      </Suspense>
+                  
                 </div>
                 <h1 className={styles.title}>
                  Results for: <span className="">"{query}"</span>
@@ -53,8 +55,10 @@ import styles from './results.module.css';
                     
                     ))
                 }
+               <Suspense fallback={<div>Loading Search...</div>}>
                 <Pagination paginationArray={pageNumberArray}
                             totalItem={totalPage}/>
+                </Suspense>
                 </div>
              
                 </main>
