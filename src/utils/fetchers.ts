@@ -20,10 +20,12 @@ try{
     }   
     const opexAlex = await response.json();
        const metaData = opexAlex.meta;
-    
+    console.log("jfhfh")
        
         
       const normalizeData = opexAlex.results.map((paper:any) : NormalizeData=>{
+
+        
             return {
         paperId : paper.id ? paper.id.split("/").pop() : "No id provided",
         author : paper?.authorships?.map((a : any) => a.author.display_name).join(', ') || "No author available ",
@@ -46,16 +48,6 @@ try{
     return {normalizeData : [] , metaData : null};
 }
 }
-
-
-
-
-
-
-
-
-
-
 // const getPaperById = async (id: string)=>{
 //       const allpaper = await fetcherData("");
 //     const foundPaper = allpaper.find((paper : NormalizeData) => paper.paperId === id);
