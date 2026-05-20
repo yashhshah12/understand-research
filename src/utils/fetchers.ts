@@ -1,6 +1,7 @@
 import { metadata } from '@/app/layout';
 import {NormalizeData} from '@/types';
 import {PaperResponse} from '@/types';
+import {abstractDetails} from './abstractDetails'
 //
 const fetcherData = async (query : string , page : number = 1) : Promise<PaperResponse> =>{
 // const url = `http://localhost:3000/api/search?q=${encodeURIComponent(query)}`
@@ -20,21 +21,23 @@ try{
     }   
     const opexAlex = await response.json();
        const metaData = opexAlex.meta;
-    console.log("jfhfh")
-       
+ 
         
       const normalizeData = opexAlex.results.map((paper:any) : NormalizeData=>{
-
-        
+            const abstract_inverted_index = paper.abstract_inverted_index;        
+            const abstractString = abstractDetails(abstract_inverted_index);
+           
+            
+            
+            
+            
             return {
         paperId : paper.id ? paper.id.split("/").pop() : "No id provided",
         author : paper?.authorships?.map((a : any) => a.author.display_name).join(', ') || "No author available ",
         title : paper?.title || "unkown",
         source : paper?.source || "OpenAlex",
-        abstract : paper?.abstract || "No   abstract available",
-        url : paper?.url || "no link provided",
+        abstract : abstractString|| "No abstract available",
         publishDate : paper?.publication_date || paper.year || "no publish Date provided",
-        category :  paper?.category || "Uncategorired",
         year: paper?.publication_year || "No year provided"
                     
             }
@@ -45,6 +48,7 @@ try{
 
 }catch(error :any){
     console.log(error.message , "This is route error message");
+    
     return {normalizeData : [] , metaData : null};
 }
 }

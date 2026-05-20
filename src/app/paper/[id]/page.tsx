@@ -1,7 +1,7 @@
 
 import BackButton from "./BackButton";
 import styles from './paper.module.css';
-
+import {abstractDetails} from '../../../utils/abstractDetails';
 const PaperDetails  = async ({params} : {params : {id? : string}})=>{
 const resolvedParam = await  params;
 
@@ -30,6 +30,8 @@ try {
         )
     }
     const paperDetails = await response.json();
+    
+
     const paper = {
        
             paperId : paperDetails.id,
@@ -37,10 +39,12 @@ try {
             paperPublicationYear : paperDetails.publication_date,
             paperSource : paperDetails.source || "OpenAlex",
             paperAuthor : paperDetails.authorships?.map((a : any) => a.author.display_name).join(', ') || "No author available ",
-            paperAbstract : paperDetails.abstract || "No abstract available",
-            paperLink : paperDetails.doi || null,
+            paperAbstract :  abstractDetails(paperDetails.abstract_inverted_index), 
+            paperLink : paperDetails.primary_location?.pdf_url ||  paperDetails.primary_location?.landing_page_url || paperDetails.doi || null,
             
     }
+    console.log(paper.paperLink);
+    
 return (
 <>
    <main className={styles.container}>
