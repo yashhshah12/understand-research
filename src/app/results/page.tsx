@@ -19,8 +19,7 @@ import styles from './results.module.css';
         const paperData = papers.normalizeData || [];
         const totalCount = papers.metaData?.count || 0;
         const paginationArray = await pagination(totalCount , cleanNumber);
-        const {pageNumberArray , totalPage} = paginationArray
-            ;
+        const {pageNumberArray , totalPage} = paginationArray;
             
         return (
                 <>
