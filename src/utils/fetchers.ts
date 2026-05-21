@@ -26,10 +26,6 @@ try{
       const normalizeData = opexAlex.results.map((paper:any) : NormalizeData=>{
             const abstract_inverted_index = paper.abstract_inverted_index;        
             const abstractString = abstractDetails(abstract_inverted_index);
-           
-            
-            
-            
             
             return {
         paperId : paper.id ? paper.id.split("/").pop() : "No id provided",
@@ -38,10 +34,14 @@ try{
         source : paper?.source || "OpenAlex",
         abstract : abstractString|| "No abstract available",
         publishDate : paper?.publication_date || paper.year || "no publish Date provided",
-        year: paper?.publication_year || "No year provided"
-                    
+        year: paper?.publication_year || "No year provided",
+        cited_count: paper.cited_by_count > 1000
+        ? `${(paper.cited_by_count/1000).toFixed(1)}k`
+            : paper.cited_by_count,
+        isOpenAccess: paper.open_access?.is_oa || null, 
             }
         })
+                
         
    
     return {normalizeData , metaData}

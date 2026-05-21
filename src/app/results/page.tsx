@@ -41,7 +41,12 @@ import styles from './results.module.css';
                               <Link className={styles.linkCard} href={`/paper/${paper.paperId}`}
                         >
                         <div className={styles.cardHeader}>
-                            <span className={styles.sourceBadge}> {paper.source}</span>
+                            <div className={styles.headerBadge}>
+                            <span className={styles.sourceBadge}>🗄️ {paper.source} </span>
+                            <span className={styles.cited}>📚 Cited {paper.cited_count}</span>
+                            {paper.isOpenAccess && paper.isOpenAccess === true && (
+                             <span className={styles.openBadge} > 🔓   Open access</span>)}
+                            </div>
                             <span className={styles.date}>  {paper.publishDate}</span>
                         </div>
                         <h2 className={styles.header}>{paper.title}</h2>

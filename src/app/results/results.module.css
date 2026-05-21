@@ -38,35 +38,55 @@ flex-direction: column;
 gap:15;
 }
 .card{
-padding: 1.5rem;
+padding: 1.2rem 1.5rem;
 border: 1px solid #e5e7eb;
 border-radius: 0.5rem;
 }
 .cardHeader{
 display: flex;
 justify-content: space-between;
-margin-bottom: 8px;
+margin-bottom: 11px;
 
 }
 .header{
 color: black !important;     
 
 }
+
 .author{
     margin: 12px 0px;
     color: oklch(37.3% 0.034 259.733);
-   display: -webkit-box;
+     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
- 
 }
 .sourceBadge{
-background-color: #e5e7eb;
+background-color: #EEF2FF;
 padding: 0.25rem 0.75rem ;
 border-radius: 9999px;
 font-size: 0.875rem;
-color: #4b5563;
+color: #4338CA;
+border: #C7D2FE;
+margin-right: 12px;
+}
+.openBadge{
+   background-color: #ECFDF5;
+padding: 0.20rem 0.70rem ;
+border-radius: 9999px;
+font-size: 0.875rem;
+color: #047857;
+border: #047857;
+
+
+}.cited{
+    background-color: #FFFBEB;
+padding: 0.20rem 0.70rem ;
+border-radius: 9999px;
+font-size: 0.875rem;
+color: #B45309;
+border: #FCD34D;
+margin-right: 10px;  
 }
 .abstact{
     color: oklch(37.3% 0.034 259.733);
@@ -79,6 +99,9 @@ color: #4b5563;
 }
 .date{
      color: black !important;
+    
+    
+
      
 }
 .viewBtn{
@@ -174,5 +197,41 @@ transform: scale(0.96);
 @media (max-width: 410px ) {
     .title{
         font-size: 1.100rem;
+    }
+}
+@media (max-width: 600px) {
+    .cardHeader{
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+    .date{
+        margin-left: 12px;
+    }
+    .headerBadge{
+        display: flex;
+        row-gap: 8px;
+        flex-wrap:wrap;
+    }
+  
+}
+
+@media (max-width: 486px) {
+    .cited,.sourceBadge,.openBadge{
+        padding:0.15rem 0.50rem ;;
+    }
+.sourceBadge{
+
+margin-right: 2px;
+}
+.cited{
+margin-right: 2px;  
+}
+}
+@media (max-width: 348px) {
+    .cited,.sourceBadge,.openBadge{
+       
+        margin-right: 6px;
+          padding:0.20rem 0.30rem 0.20rem 0.20rem;
     }
 }

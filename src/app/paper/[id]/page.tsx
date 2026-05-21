@@ -36,15 +36,17 @@ try {
        
             paperId : paperDetails.id,
             paperTitle : paperDetails.title,
-            paperPublicationYear : paperDetails.publication_date,
+            publishDate : paperDetails.publication_date,
             paperSource : paperDetails.source || "OpenAlex",
             paperAuthor : paperDetails.authorships?.map((a : any) => a.author.display_name).join(', ') || "No author available ",
             paperAbstract :  abstractDetails(paperDetails.abstract_inverted_index), 
-            paperLink : paperDetails.primary_location?.pdf_url ||  paperDetails.primary_location?.landing_page_url || paperDetails.doi || null,
-            
+            paperLink : paperDetails?.open_access?.oa_url ||paperDetails.primary_location?.pdf_url ||  paperDetails.primary_location?.landing_page_url || paperDetails.doi || null,
+            papercited: paperDetails.cited_by_count > 1000
+        ? `${(paperDetails.cited_by_count/1000).toFixed(1)}k`
+            : paperDetails.cited_by_count,
+            isOpenAccess: paperDetails.open_access?.is_oa || null, 
     }
-    console.log(paper.paperLink);
-    
+ 
 return (
 <>
    <main className={styles.container}>
@@ -52,9 +54,14 @@ return (
     <BackButton />
 
        <div className={styles.card}>
-                        <div className={styles.cardHeader}>
-                            <span className={styles.sourceBadge}> {paper.paperSource}</span>
-                            <span className={styles.date}>  {paper.paperPublicationYear}</span>
+                           <div className={styles.cardHeader}>
+                            <div className={styles.headerBadge}>
+                            <span className={styles.sourceBadge}>🗄️ {paper.paperSource} </span>
+                            <span className={styles.cited}>📚 Cited {paper.papercited}</span>
+                            {paper.isOpenAccess && paper.isOpenAccess === true && (
+                             <span className={styles.openBadge} > 🔓   Open access</span>)}
+                            </div>
+                            <span className={styles.date}>  {paper.publishDate}</span>
                         </div>
                         <h1 className={styles.title}>{paper.paperTitle}</h1>
                         

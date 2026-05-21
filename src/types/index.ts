@@ -4,10 +4,12 @@ export interface NormalizeData {
     title ?: string,
     source ?:string,
     abstract ?:string,
+    cited_count ?: number | string,
     url ?:string,
     publishDate ?:string,
     category ?:string,
     year?: number;
+    isOpenAccess?: string,
 }   
 
 export interface MockData{
