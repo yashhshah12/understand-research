@@ -13,8 +13,6 @@ if (!query) {
 const externalapi = `https://api.openalex.org/works?search=${query}&page=${page}&per_page=20`;
 try{
     const response = await fetch(externalapi);
-     
-    console.log(response);
     
     if (!response.ok) {
         console.log(response.status);
@@ -44,9 +42,7 @@ try{
         isOpenAccess: paper.open_access?.is_oa || null, 
             }
         })
-                
-        console.log(normalizeData);
-        
+         
    
     return {normalizeData , metaData}
 
