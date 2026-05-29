@@ -13,6 +13,9 @@ if (!query) {
 const externalapi = `https://api.openalex.org/works?search=${query}&page=${page}&per_page=20`;
 try{
     const response = await fetch(externalapi);
+     
+    console.log(response);
+    
     if (!response.ok) {
         console.log(response.status);
         
@@ -42,6 +45,7 @@ try{
             }
         })
                 
+        console.log(normalizeData);
         
    
     return {normalizeData , metaData}

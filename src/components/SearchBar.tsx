@@ -5,17 +5,18 @@ import styles from '../app/page.module.css'
 import { useRouter , useSearchParams } from "next/navigation";
 
 
-const SearchBar = () =>{
+const SearchBar =  () =>{
 const searchParams = useSearchParams();
 const initialquery = searchParams.get('q') || ''
 const [search , setSearch] = useState(initialquery);
 const router = useRouter();
-const handleSearch = (e :React.SubmitEvent<HTMLFormElement>) =>{
+const handleSearch =  (e :React.SubmitEvent<HTMLFormElement>) =>{
 e.preventDefault()
 if (!search) {
     return;
 
 }
+
  router.push(`results?q=${encodeURIComponent(search)}`)
 
 }
