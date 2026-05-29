@@ -47,7 +47,25 @@ margin-bottom: 11px;
 color: black !important;     
 
 }
+.resultsTop{
+display: flex;
+justify-content: space-between;
+align-items: start;
+}
+.resultsTop a{
+    text-decoration:  none;
+    color: #6b7280;
+    font-size: 14px;
+    cursor: copy;
+    transition: color 0.2 ease;
+}
+.mail{
+    user-select: text;
 
+}
+.resultsTop a:hover{
+   color: #111827;
+}
 .author{
     margin: 12px 0px;
     color: oklch(37.3% 0.034 259.733);
@@ -229,4 +247,12 @@ margin-right: 2px;
         margin-right: 6px;
           padding:0.20rem 0.30rem 0.20rem 0.20rem;
     }
+}
+@media (max-width: 850px) {
+    .resultsTop{
+display: flex;
+flex-direction: column;
+margin-bottom: 20px;
+
+}
 }

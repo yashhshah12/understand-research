@@ -31,9 +31,16 @@ import styles from './results.module.css';
                      </Suspense>
                   
                 </div>
+                <div className={styles.resultsTop}>
                 <h1 className={styles.title}>
                  Results for: <span className="">"{query}"</span>
                 </h1>
+                <a href="mailto:yashhshah12@gmail.com" draggable={false}>
+               <span className={styles.label}> 🐞 Report Issue:</span> 
+               <span className={styles.mail}>yashhshah12@gmail.com</span>
+
+                 </a> 
+                </div>
                 <div className={styles.cardList}>
                     
                 <Suspense fallback={<Skeleton/>} key={suspenseKey} >
