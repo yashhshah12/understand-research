@@ -1,33 +1,34 @@
 export const dynamic = 'force-dynamic';
 import Link from 'next/link';
 import { Suspense } from 'react'
-import {Pagination} from '../../components/Pagination';
+
 import {SearchBar} from '../../components/SearchBar';
-import {fetcherData} from '../../utils/fetchers';   
-import {pagination} from '../../utils/pagination'
+import {Skeleton} from '../../components/Skeleton'
+import {ResultWrapperPage} from './resultwrapper';
+import SearchSkeleton from '../../components/SearchSkeleton';
 import styles from './results.module.css';
 
 
     const ResultPage  = async ({searchParams} : {
         searchParams : Promise<{q? : string; page?: string} >
     })=>{
+       
         const resolvePromise = await searchParams
+
         const query =  resolvePromise.q || 'Biology';
         const currentNumber = resolvePromise.page;
-        const cleanNumber = Number(currentNumber) || 1
-        let papers = await fetcherData(query , cleanNumber);        
-        const paperData = papers.normalizeData || [];
-        const totalCount = papers.metaData?.count || 0;
-        const paginationArray = await pagination(totalCount , cleanNumber);
-        const {pageNumberArray , totalPage} = paginationArray;
+        const cleanNumber = Number(currentNumber) || 1       
+        const suspenseKey = `${query} - ${currentNumber}`
+       
             
+
         return (
                 <>
                 <main className={styles.container}>
                     <div className={styles.heading}>
-                        <Suspense fallback={<div>Loading Search...</div>}>
-         <SearchBar/>
-      </Suspense>
+                        <Suspense fallback = {<SearchSkeleton/>}>
+                     <SearchBar/>
+                     </Suspense>
                   
                 </div>
                 <h1 className={styles.title}>
@@ -35,34 +36,10 @@ import styles from './results.module.css';
                 </h1>
                 <div className={styles.cardList}>
                     
-                {
-                    paperData.map((paper : any)=> (
-                       <div className={styles.card} key={paper.paperId}>
-                              <Link className={styles.linkCard} href={`/paper/${paper.paperId}`}
-                        >
-                        <div className={styles.cardHeader}>
-                            <div className={styles.headerBadge}>
-                            <span className={styles.sourceBadge}>🗄️ {paper.source} </span>
-                            <span className={styles.cited}>📚 Cited {paper.cited_count}</span>
-                            {paper.isOpenAccess && paper.isOpenAccess === true && (
-                             <span className={styles.openBadge} > 🔓   Open access</span>)}
-                            </div>
-                            <span className={styles.date}>  {paper.publishDate}</span>
-                        </div>
-                        <h2 className={styles.header}>{paper.title}</h2>
-                        <p  className={styles.abstact}>{paper.abstract}</p>
-                        <p className={styles.author}>{paper.author}</p>
-                      
-                          <button className={styles.viewBtn}>  View paper details</button>
-                        </Link>
-                        </div>
-                    
-                    ))
-                }
-               <Suspense fallback={<div>Loading Search...</div>}>
-                <Pagination paginationArray={pageNumberArray}
-                            totalItem={totalPage}/>
+                <Suspense fallback={<Skeleton/>} key={suspenseKey} >
+                <ResultWrapperPage query={query} cleanNumber={cleanNumber}/>
                 </Suspense>
+           
                 </div>
              
                 </main>
