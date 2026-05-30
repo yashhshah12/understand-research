@@ -1,3 +1,6 @@
+# Live Link: https://understand-research.vercel.app/
+
+
 # 📚 Understand Research
 
 A modern web platform designed to make accessing and understanding research papers easy. This aggregator fetches research papers from various platforms, categorizes them, and presents simplified summaries in a clean ,and displays them in a clean, user-friendly interface.
@@ -9,9 +12,11 @@ A modern web platform designed to make accessing and understanding research pape
 * **Styling:** Standard CSS (CSS Modules & Global variables)
 
 ## 📋 Features (Phase 1)
-* Search functionality for academic papers.
-* Clean, responsive UI with text truncation for easy scanning.
-* Dynamic routing for specific Paper Detail pages (`/paper/[id]`).
+* **Search Functionality:** High-speed querying for academic papers using the OpenAlex API.
+* **Responsive Layout:** Clean, mobile-friendly UI with intelligent text truncation for easy scanning.
+* **Dynamic Routing:** Dedicated, instant-load Paper Detail pages (`/paper/[id]`).
+* **Perceived Performance:** Implemented CSS-based Skeleton UI to prevent layout shifts during network requests.
+* **Efficient Data Fetching:** Integrated API-level pagination to handle large datasets seamlessly.
 
 ## This project aims to make research papers easy to access and understand by providing:
 * Quick summaries for fast reading
@@ -35,4 +40,8 @@ refactor: A code improvement or structural change (e.g., refactor: clean up CSS 
 style: CSS/UI Change (e.g., style: Card design change)
 docs: Documentation (e.g., docs: update documentation)
 chore: Small (e.g., chore: update dependencies)
+
+Author
+Yash Paresh Shah
+Actively learning Data Structures & Algorithms and Software Engineering principles.
 
