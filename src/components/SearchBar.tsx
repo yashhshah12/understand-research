@@ -12,12 +12,13 @@ const [search , setSearch] = useState(initialquery);
 const router = useRouter();
 const handleSearch =  (e :React.SubmitEvent<HTMLFormElement>) =>{
 e.preventDefault()
-if (!search) {
+const cleanSearch = search.trim()
+if (!cleanSearch) {
     return;
 
 }
 
- router.push(`results?q=${encodeURIComponent(search)}`)
+ router.push(`results?q=${encodeURIComponent(cleanSearch)}`)
 
 }
 
