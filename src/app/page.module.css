@@ -50,11 +50,11 @@ margin: auto;
       background: oklch(48.8% 0.243 264.376);
 }
 .controls button:focus {
-outline: 3px solid rgba(8, 39, 89, 0.15);
+outline: 2px solid rgba(8, 39, 89, 0.15);
 outline-offset: 2px;    
 }
 .controls button:active {
-transform: translateY(6px) ;
+transform: translateY(2px) ;
 
 
 }
