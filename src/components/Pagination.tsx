@@ -11,7 +11,8 @@ const currentpage = Number(searchParams.get('page')) || 1;
 
 async function handlepagination(selectNumber : number) {
 const initialquery = searchParams.get('q') || 'Biology'
-router.push(`/results?q=${encodeURIComponent(initialquery)}&page=${selectNumber}`)
+const tabvalue = searchParams.get('tabs') || "All"
+router.push(`/results?q=${encodeURIComponent(initialquery)}&page=${selectNumber}&tabs=${tabvalue}`)
 }
 
 

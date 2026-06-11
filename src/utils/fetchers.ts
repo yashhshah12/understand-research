@@ -3,14 +3,22 @@ import {NormalizeData} from '@/types';
 import {PaperResponse} from '@/types';
 import {abstractDetails} from './abstractDetails'
 //
-const fetcherData = async (query : string , page : number = 1) : Promise<PaperResponse> =>{
+const fetcherData = async (query : string , page : number = 1 , tabs: string) : Promise<PaperResponse> =>{
 // const url = `http://localhost:3000/api/search?q=${encodeURIComponent(query)}`
 if (!query) {
     return {  normalizeData :[] , metaData : null};
 }
 
+let externalapi = `https://api.openalex.org/works?search=${query}&page=${page}&per_page=20`;
+if (tabs === "arXiv") {
+    console.log("Tab is working ");
+    
+    externalapi += `&filter=locations.source.id:S4306400194`
+}else{
+    console.log("IT is not working");
+    
+}
 
-const externalapi = `https://api.openalex.org/works?search=${query}&page=${page}&per_page=20`;
 try{
     const response = await fetch(externalapi);
     

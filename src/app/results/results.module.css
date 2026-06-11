@@ -13,7 +13,6 @@ font-family: sans-serif;
 .title{ 
 font-size: 1.865rem;
 font-weight: 600;
-margin-bottom: 0.90rem;
 
 }
 .heading{
@@ -51,6 +50,7 @@ color: black !important;
 display: flex;
 justify-content: space-between;
 align-items: start;
+margin-bottom: 20px;
 }
 .resultsTop a{
     text-decoration:  none;
@@ -253,6 +253,6 @@ margin-right: 2px;
 display: flex;
 flex-direction: column;
 margin-bottom: 20px;
-
+gap: 10px;
 }
 }

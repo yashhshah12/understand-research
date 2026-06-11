@@ -11,10 +11,10 @@ import { resolve } from 'path';
 
 
 
-    const ResultWrapperPage  = async ({query , cleanNumber} : {query : string , cleanNumber: number})=>{
+    const ResultWrapperPage  = async ({query , cleanNumber , tab} : {query : string , cleanNumber: number, tab: string})=>{
        
          
-        let papers = await fetcherData(query , cleanNumber);        
+        let papers = await fetcherData(query , cleanNumber , tab);        
         const paperData = papers.normalizeData || [];
         const totalCount = papers.metaData?.count || 0;
     
