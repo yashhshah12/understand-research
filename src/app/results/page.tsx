@@ -7,10 +7,11 @@ import {Skeleton} from '../../components/Skeleton'
 import {ResultWrapperPage} from './resultwrapper';
 import SearchSkeleton from '../../components/SearchSkeleton';
 import styles from './results.module.css';
+import {Tabs} from '../../components/Tabs';
 
 
     const ResultPage  = async ({searchParams} : {
-        searchParams : Promise<{q? : string; page?: string} >
+        searchParams : Promise<{q? : string; page?: string ; tabs?: string} >
     })=>{
        
         const resolvePromise = await searchParams
@@ -18,7 +19,10 @@ import styles from './results.module.css';
         const query =  resolvePromise.q || 'Biology';
         const currentNumber = resolvePromise.page;
         const cleanNumber = Number(currentNumber) || 1       
-        const suspenseKey = `${query} - ${currentNumber}`
+        
+       const tab = resolvePromise.tabs || 'All'
+       const suspenseKey = `${query} - ${currentNumber} - ${tab}`
+   
        
             
 
@@ -41,10 +45,14 @@ import styles from './results.module.css';
 
                  </a> 
                 </div>
+                <Suspense fallback={<Skeleton/>} key={suspenseKey}>
+                <Tabs/>
+                </Suspense>
+
                 <div className={styles.cardList}>
                     
                 <Suspense fallback={<Skeleton/>} key={suspenseKey} >
-                <ResultWrapperPage query={query} cleanNumber={cleanNumber}/>
+                <ResultWrapperPage query={query} cleanNumber={cleanNumber} tab={tab}/>
                 </Suspense>
            
                 </div>

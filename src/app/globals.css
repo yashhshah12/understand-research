@@ -1,6 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Pro-tip: Always add this with your reset! */
-  
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+/* @import "tailwindcss"; */
+
