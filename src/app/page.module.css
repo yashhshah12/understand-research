@@ -17,7 +17,6 @@ margin: auto;
 }
 .controls{
     display: flex;
-    max-width: 56rem;
     gap: 10px;
     width: 100%;
 }
