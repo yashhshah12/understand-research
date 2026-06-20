@@ -10,9 +10,17 @@ font-family: sans-serif;
     text-decoration: none;
     cursor: default;
 }
+.resultsTop{
+display: flex;
+justify-content: space-between;
+align-items: start;
+margin-bottom: 20px;
+
+}
 .title{ 
-font-size: 1.865rem;
+font-size: 1.785rem;
 font-weight: 600;
+
 
 }
 .heading{
@@ -23,6 +31,7 @@ margin-bottom: 10px;
 justify-content: space-between;
 border-bottom: 1px solid rgb(197, 194, 194); 
 padding-bottom: 18px;
+
 
 }
 .cardList{
@@ -46,18 +55,16 @@ margin-bottom: 11px;
 color: black !important;     
 
 }
-.resultsTop{
-display: flex;
-justify-content: space-between;
-align-items: start;
-margin-bottom: 20px;
-}
+
 .resultsTop a{
     text-decoration:  none;
     color: #6b7280;
     font-size: 14px;
     cursor: copy;
     transition: color 0.2 ease;
+    text-align: right;
+    flex-shrink: 0;
+    
 }
 .mail{
     user-select: text;

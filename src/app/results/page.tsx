@@ -29,18 +29,19 @@ import {Tabs} from '../../components/Tabs';
         return (
                 <>
                 <main className={styles.container}>
-                    <div className={styles.heading}>
+                    <div className={styles.heading} >
                         <Suspense fallback = {<SearchSkeleton/>}>
                      <SearchBar/>
                      </Suspense>
                   
                 </div>
-                <div className={styles.resultsTop}>
+                <div className={styles.resultsTop }  >
                 <h1 className={styles.title}>
                  Results for: <span className="">"{query}"</span>
                 </h1>
-                <a href="mailto:yashhshah12@gmail.com" draggable={false}>
-               <span className={styles.label}> 🐞 Report Issue:</span> 
+                <a href="mailto:yashhshah12@gmail.com" draggable={false} >
+               <span className={styles.label}>🐞 Report Issue: </span> 
+               
                <span className={styles.mail}>yashhshah12@gmail.com</span>
 
                  </a> 
