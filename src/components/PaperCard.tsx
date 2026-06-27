@@ -4,7 +4,7 @@ import {Bookmark} from 'lucide-react'
 import Link from 'next/link'
 const PaperCard  = async ({resultData} : any)=>{
 const paperData = await resultData
-
+const showAuthlinks = process.env.NEXT_PUBLIC_SHOW_AUTH === 'true';
     return( 
         <>
         {
@@ -19,10 +19,13 @@ const paperData = await resultData
                             {paper.isOpenAccess && paper.isOpenAccess === true && (
                              <span className={styles.openBadge} > 🔓   Open access</span>)}
                             </div>
+                              {showAuthlinks && (
                             <div className='flex gap-2 items-center'>
                             <span className={styles.date} >  {paper.publishDate}</span>
                             <Bookmark size={22} />
                             </div>
+                              )}
+                          
                         </div>
                         <h2 className={styles.header}>{paper.title}</h2>
                         <p  className={styles.abstact}>{paper.abstract}</p>
