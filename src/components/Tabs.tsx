@@ -7,6 +7,9 @@ const Tabs = () =>{
 const searchParams = useSearchParams();
 const query = searchParams.get('q') || 'biology'
 const tabs = searchParams.get('tabs') || 'All'
+const showAuthlinks = process.env.NEXT_PUBLIC_SHOW_AUTH === 'true';
+console.log(showAuthlinks);
+
 const [activeTab , setactive]  = useState(tabs);
 
     return(
@@ -20,10 +23,18 @@ const [activeTab , setactive]  = useState(tabs);
                     All
                
                 </Link>
-                 <Link  href={`results?q=${encodeURIComponent(query)}&tabs=arXiv` } onClick={()=> setactive("arXiv")}   className= {`border rounded-[10px] px-3 py-1  !no-underline flex gap-0.5 items-center ${activeTab === 'arXiv' ? 'bg-blue-50 text-blue-700' :'bg-transparent text-gray-500' }`} >
+                 <Link  href={`results?q=${encodeURIComponent(query)}&tabs=arXiv` } 
+                 onClick={()=> setactive("arXiv")}   className= {`border rounded-[10px] px-3 py-1  !no-underline flex gap-0.5 items-center ${activeTab === 'arXiv' ? 'bg-blue-50 text-blue-700' :'bg-transparent text-gray-500' }`} >
                 <Beaker size={17} className=''/>
                 arXiv    
         </Link>
+        {showAuthlinks && (
+         <Link href={''} onClick={()=> setactive("Saved")}   className= {`border rounded-[10px] px-3 py-1  !no-underline flex gap-0.5 items-center ${activeTab === 'Saved' ? 'bg-blue-50 text-blue-700' :'bg-transparent text-gray-500' }`} >
+            <Bookmark size={17} />
+                Saved
+        </Link>
+        )}
+      
         </div>
     )
 }
