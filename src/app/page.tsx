@@ -2,7 +2,7 @@
 import styles from "./page.module.css";
 import {SearchBar} from '../components/SearchBar';
 import { Suspense } from "react";
-import {Skeleton} from '../components/Skeleton';
+
 export default function Home() {
   return (
     <>
