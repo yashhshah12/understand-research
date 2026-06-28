@@ -1,18 +1,19 @@
 .container{
-min-height: 100dvh;
 justify-content: start;
 align-items: center;
 display: flex;
 padding: 20px;
+padding-top: 1rem;
 flex-direction: column;
 max-width: 56rem;
 margin: auto;
+
 }
 .container h1{
     font-size: 2.2rem;
     font-weight: 700;
     color: #1e293b;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-family: sans-serif;
 }
 .controls{
