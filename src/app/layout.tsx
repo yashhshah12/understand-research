@@ -22,14 +22,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const showAuthlinks = process.env.NEXT_PUBLIC_SHOW_AUTH === 'true';
+ 
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="min-h-dv">
-        {showAuthlinks && (
-      <AuthLinks /> 
-        )
-        }
+      <body className="min-h-dvh">
+        
         
         {children}</body>
     </html>
