@@ -1,4 +1,4 @@
-import styles from '../app/results/results.module.css'
+import styles from '../app/(main)/results/results.module.css'
 
 import {Bookmark} from 'lucide-react'
 import Link from 'next/link'
