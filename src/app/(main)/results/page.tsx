@@ -2,12 +2,12 @@ export const dynamic = 'force-dynamic';
 import Link from 'next/link';
 import { Suspense } from 'react'
 
-import {SearchBar} from '../../components/SearchBar';
-import {Skeleton} from '../../components/Skeleton'
+import {SearchBar} from '../../../components/SearchBar';
+import {Skeleton} from '../../../components/Skeleton'
 import {ResultWrapperPage} from './resultwrapper';
-import SearchSkeleton from '../../components/SearchSkeleton';
+import SearchSkeleton from '../../../components/SearchSkeleton';
 import styles from './results.module.css';
-import {Tabs} from '../../components/Tabs';
+import {Tabs} from '../../../components/Tabs';
 
 
     const ResultPage  = async ({searchParams} : {

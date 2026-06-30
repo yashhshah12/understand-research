@@ -1,5 +1,5 @@
 'use client'
-import styles from '../app/results/results.module.css'
+import styles from '../app/(main)/results/results.module.css'
 import { useRouter, useSearchParams } from 'next/navigation';
 import {PaginationArray} from '@/types';
 import {ChevronLeft , ChevronRight} from 'lucide-react';

@@ -1,7 +1,7 @@
 
 import BackButton from "./BackButton";
 import styles from './paper.module.css';
-import {abstractDetails} from '../../../utils/abstractDetails';
+import {abstractDetails} from '../../../../utils/abstractDetails';
 const PaperDetails  = async ({params} : {params : {id? : string}})=>{
 const resolvedParam = await  params;
 

@@ -1,13 +1,13 @@
 export const dynamic = 'force-dynamic';
-import Link from 'next/link';
-import { Suspense } from 'react'
-import {Pagination} from '../../components/Pagination';
 
-import {fetcherData} from '../../utils/fetchers';   
-import {pagination} from '../../utils/pagination'
-import {PaperCard} from '../../components/PaperCard';
-import {NotFound} from '../../components/NotFound'
-import { resolve } from 'path';
+import { Suspense } from 'react'
+import {Pagination} from '../../../components/Pagination';
+
+import {fetcherData} from '../../../utils/fetchers';   
+import {pagination} from '../../../utils/pagination'
+import {PaperCard} from '../../../components/PaperCard';
+import {NotFound} from '../../../components/NotFound'
+
 
 
 

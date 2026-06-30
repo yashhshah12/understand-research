@@ -1,6 +1,6 @@
 
-import styles from "./page.module.css";
-import {SearchBar} from '../components/SearchBar';
+import styles from ".././page.module.css";
+import {SearchBar} from '../../components/SearchBar';
 import { Suspense } from "react";
 
 export default function Home() {
