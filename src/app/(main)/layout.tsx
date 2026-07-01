@@ -13,7 +13,7 @@ import { AuthLinks } from "../../components/AuthLinks";
         <AuthLinks /> 
           )
           }
-        <main className="min-h-dvh ">{children}</main>
+        <main>{children}</main>
    </>
   );
 }
