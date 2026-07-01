@@ -10,15 +10,16 @@ const LoginPage = ()=>{
             <p className="text-2xl text-gray-500"> Please enter your details</p>    
             </div>
             <form action="" className="flex flex-col gap-5 mt-5 mb-20 ">
-            <input type="email" placeholder="Email address"  className="py-3 px-2 rounded-2xl text-lg border-gray-300"  />
-            <input type="password" name="" id="" placeholder="Password" className="py-3 px-2 rounded-[15px] text-lg border-gray-300"/>
+            <input type="email" placeholder="Email address"  className="py-[0.5rem] px-2 rounded-2xl text-lg border-gray-300"  />
+            <input type="password" name="" id="" placeholder="Password" className="py-[0.5rem]  px-2 rounded-[15px] text-lg border-gray-300"/>
+            
            <Link href={''} className='text-right text-xl text-blue-600 no-underline' >
             Forget password
            
            </Link>
-                <button type='submit' className='bg-[#2563eb]  text-center px-2 py-3 rounded-2xl text-xl  border-none border-gray-300"  text-white font-sans'>Log In</button>
+                <button type='submit' className='bg-[#2563eb]  text-center px-2 py-[0.5rem] rounded-2xl text-xl  border-none border-gray-300"  text-white font-sans'>Log In</button>
             
-            <Link href={''} className='text-center text-[1.3rem] text-blue-600 max-[400]:flex flex-col no-underline' > <span>Don't have an account?  </span>
+            <Link href={'signup'} className='text-center text-[1.3rem] text-blue-600 max-[400]:flex flex-col no-underline' > <span>Don't have an account?  </span>
                 
                 <span> Sign up </span>
           

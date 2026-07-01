@@ -8,7 +8,6 @@ const searchParams = useSearchParams();
 const query = searchParams.get('q') || 'biology'
 const tabs = searchParams.get('tabs') || 'All'
 const showAuthlinks = process.env.NEXT_PUBLIC_SHOW_AUTH === 'true';
-console.log(showAuthlinks);
 
 const [activeTab , setactive]  = useState(tabs);
 
