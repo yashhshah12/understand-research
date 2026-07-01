@@ -14,7 +14,9 @@ import {NotFound} from '../../../components/NotFound'
     const ResultWrapperPage  = async ({query , cleanNumber , tab} : {query : string , cleanNumber: number, tab: string})=>{
        
          
-        let papers = await fetcherData(query , cleanNumber , tab);        
+        let papers = await fetcherData(query , cleanNumber , tab);  
+        console.log(papers, "This is reseult");
+              
         const paperData = papers.normalizeData || [];
         const totalCount = papers.metaData?.count || 0;
     

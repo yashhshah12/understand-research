@@ -9,15 +9,13 @@ if (!query) {
     return {  normalizeData :[] , metaData : null};
 }
 
-let externalapi = `https://api.openalex.org/works?search=${query}&page=${page}&per_page=20`;
+let externalapi = `https://api.openalex.org/works?search=${query}&page=${page}&per_page=20&api_key=${process.env.API_KEY}`;
 if (tabs === "arXiv") {
     console.log("Tab is working ");
     
     externalapi += `&filter=locations.source.id:S4306400194`
-}else{
-    console.log("IT is not working");
-    
 }
+
 
 try{
     const response = await fetch(externalapi);
@@ -30,7 +28,7 @@ try{
     }   
     const opexAlex = await response.json();
        const metaData = opexAlex.meta;
- 
+       
         
       const normalizeData = opexAlex.results.map((paper:any) : NormalizeData=>{
             const abstract_inverted_index = paper.abstract_inverted_index;        

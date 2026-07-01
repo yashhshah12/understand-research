@@ -22,7 +22,7 @@ import {Tabs} from '../../../components/Tabs';
         
        const tab = resolvePromise.tabs || 'All'
        const suspenseKey = `${query} - ${currentNumber} - ${tab}`
-   
+       
        
             
 
