@@ -28,8 +28,7 @@ try{
     }   
     const opexAlex = await response.json();
        const metaData = opexAlex.meta;
-        console.log(opexAlex);
-        
+       
         
       const normalizeData = opexAlex.results.map((paper:any) : NormalizeData=>{
             const abstract_inverted_index = paper.abstract_inverted_index;        
