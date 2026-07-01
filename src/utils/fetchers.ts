@@ -9,7 +9,7 @@ if (!query) {
     return {  normalizeData :[] , metaData : null};
 }
 
-let externalapi = `https://api.openalex.org/works?search=${query}&page=${page}&per_page=20`;
+let externalapi = `https://api.openalex.org/works?search=${query}&page=${page}&per_page=20&api_key=${process.env.API_KEY}`;
 if (tabs === "arXiv") {
     console.log("Tab is working ");
     
