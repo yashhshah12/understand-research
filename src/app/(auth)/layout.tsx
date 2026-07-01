@@ -6,7 +6,7 @@
     return(
                     
                     
-    <main className="min-h-dvh bg-gray-100 flex flex-col gap-5 items-center p-7 pt-15 text-[1.03rem] max-[410px]:pt-5" >
+    <main className="min-h-dvh bg-gray-100 flex flex-col gap-5 items-center p-7 pt-10 text-[1.03rem] max-[410px]:py-5" >
         <div className="text-left w-full max-w-[38rem]">
         <BackButton/>         
         </div>
